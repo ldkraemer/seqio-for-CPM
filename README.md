@@ -9,6 +9,11 @@ $ pdftk CPM_Programmers_Utilities_Guide_Sep82.pdf burst
 Then used Irfanview's KADMOS OCR Plugin to OCR each page (204-214) to
 make the Source Code listing.
 
+There are likely still errors withing the file, so please post your findings so the
+corrections are captured.
 
+THANKS!
+
+Larry
 
 
