@@ -1,5 +1,3 @@
-
-
   ;      sequential file i/o library
   ;
   filerr set     0000h   ;reboot after error
@@ -59,7 +57,7 @@
   ;
   filldef        macro   fcb,?fl,?1n
   ;;    fill the file name from the default fcb
-  ;;    for length ?1n (9 or 12)
+  ;;    for length ?ln (9 or 12)
         local    psub
         jmp      psub    ;;jump past the subroutine
   @def: ;;this subroutine fills from the tfcb (+16)
@@ -84,7 +82,7 @@
  fillnxt        macro
  ;;      initialize buffer and device numbers
  @nxtb   set     0       ;;next buffer location
- @nxtd   set     @1st+1  ;;next device number
+ @nxtd   set     @lst+1  ;;next device number
  fillnxt         macro
          endm
          endm
@@ -186,7 +184,7 @@
         endif
  ;;     file control block and related parameters
  ;;     are created inline, now create io function
-        jmp     psub    ;;Past inline subroutine
+        jmp     psub    ;;past inline subroutine
         if      md=1    ;;input file
  get&fid:
         else
@@ -382,7 +380,7 @@
          lxi     d,fcb&fid
          mvi     c,@dir
          call    @bdos
-         inr     a       ;00 if not Present
+         inr     a       ;00 if not present
          endm
    ;
   rename macro   new,old
@@ -417,7 +415,7 @@
   ;
   get    macro   dev
   ;;     read character from device
-         if      @&dev <=@1st       
+         if      @&dev <= @1st       
   ;;     simple input
          mvi     c,@&dev
          call    @bdos
@@ -438,5 +436,26 @@
         else
         call    put&dev
         endm
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
